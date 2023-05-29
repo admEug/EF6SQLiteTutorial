@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace EF6SQLiteTutorial.Data
 {
@@ -9,6 +10,11 @@ namespace EF6SQLiteTutorial.Data
 
         }
 
-        public DbSet<RpgCharacter> RpgCharacters => Set<RpgCharacter>();
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			optionsBuilder.UseSqlite("Data Source=D:\\database.db");
+		}
+
+		public DbSet<RpgCharacter> RpgCharacters => Set<RpgCharacter>();
     }
 }
