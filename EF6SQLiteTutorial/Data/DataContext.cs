@@ -8,12 +8,7 @@ namespace EF6SQLiteTutorial.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
-        }
-
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			optionsBuilder.UseSqlite("Data Source=D:\\database.db");
-		}
+        }	
 
 		public DbSet<RpgCharacter> RpgCharacters => Set<RpgCharacter>();
     }
